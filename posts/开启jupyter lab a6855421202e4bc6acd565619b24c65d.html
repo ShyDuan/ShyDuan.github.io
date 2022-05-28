@@ -1,0 +1,674 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>开启jupyter lab</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d9c6a682-8604-4e9d-ba70-2fe488658b71" class="page sans"><header><h1 class="page-title">开启jupyter lab</h1></header><div class="page-body"><h2 id="09008268-069f-4464-b515-bf0fd10bbe22" class="">打开anaconda powershell prompt</h2><figure id="a6855421-202e-4bc6-acd5-65619b24c65d" class="image"><a href="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image2.png"><img style="width:288px" src="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image2.png"/></a></figure><h2 id="f7cac4b9-079d-4e42-ad67-2b8713ca90cb" class="">激活base环境</h2><p id="23cfad6a-bfd5-4c95-9dd1-7281a118e2c1" class="">conda activate base</p><figure id="9ed72c46-b19a-416d-ba86-0087ba90b572" class="image"><a href="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image3.png"><img style="width:609px" src="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image3.png"/></a></figure><p id="e3e2ef31-a1ab-4baa-a324-2dbbaf36ab61" class="">anaconda可以创建无数个python环境，每个环境里分别安装不同的包、互相不影响。Base是最基础的环境，你也可以自己创建一个环境。</p><h2 id="148e6510-359e-42a4-adfb-effb71a37c1d" class="">切换为清华源</h2><p id="0bfb3dfd-ba81-4c44-9bbb-13f793e6ee68" class="">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</p><p id="eb5daa00-87a5-4277-a4e7-7c363e682332" class="">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</p><p id="c8982847-7328-49ea-b63f-28ed2bd93218" class="">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge</p><p id="1384edec-7dfa-4c69-9a15-e7b9e7d9a624" class="">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/</p><p id="4dd1e726-993e-48fc-ba7a-450100c858be" class="">conda config --set show_channel_urls yes</p><p id="22d1b9bb-d8fd-4aa6-af88-b04c2b5cbedc" class="">源是你安装包的库，默认的源速度较慢，改为清华源可以加快下载速度。</p><h2 id="254d3b49-0813-4aa2-9ad8-f18d7264776d" class="">安装Jupyter lab</h2><p id="bf2db916-b2d2-4606-8afc-fceca1b69baf" class="">Pip install jupyterlab</p><figure id="fa8259d5-912e-4c2b-ba2d-0ee941300b4f" class="image"><a href="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image4.png"><img style="width:606px" src="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image4.png"/></a></figure><p id="f46c2e2e-1d91-4cbf-b9f9-d93362c3f24e" class="">Jupyter lab的安装只需要一行命令，键入后等待下载即可。</p><figure id="d3e3638f-0f78-45e6-9cdc-c36e5b7c7564" class="image"><a href="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image5.png"><img style="width:700px" src="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image5.png"/></a></figure><h2 id="4c478876-e79c-4fc6-8828-54f54a096ddc" class="">进入jupyter lab</h2><p id="201714e7-5baa-46a0-8f16-97c0220dabe9" class="">Jupyter lab</p><p id="a1accb6d-d55f-4321-a068-9d0b3eac7d05" class="">键入jupyter lab后，通常会直接跳转至浏览器，打开lab窗口。如若没有，你也可以在浏览器输入<a href="http://localhost:8888/lab">http://localhost:8888/lab</a>，访问lab实验室。</p><figure id="d1883798-d910-4f87-805e-fba36b46bd63" class="image"><a href="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image6.png"><img style="width:700px" src="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image6.png"/></a></figure><h2 id="b92870e6-f1a4-43f0-986a-c133f34e3bce" class="">Jupyter lab</h2><p id="68281f04-aad8-4eaf-bec6-b3a5e41284bd" class="">Lab窗口界面如下：</p><figure id="234aa754-7e0a-4da1-a3d2-0e1008fc0760" class="image"><a href="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image7.png"><img style="width:700px" src="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image7.png"/></a></figure><p id="eaba138b-c979-4e4f-8ee9-8394a2988ab4" class="">最左侧是选项卡，包括工作区、标签、插件中心，左侧栏是工作区的文件夹，你可以切换到你想要保存、运行文件的位置。右侧就是编辑区啦。接下来让我们创建一个notebook文件，享受jupyter便捷的交互吧！</p><h2 id="f1c5233f-5d87-4f16-b2d1-57bae3fc04cf" class="">Notebook文件</h2><p id="afc652ab-5fb5-4150-b09a-c82dc9ec03ea" class="">Notebook文件是jupyter lab特有的格式，因其可以将代码分块运行、直接在文档中显示、丰富的备注样式，因此很适合用来教学、数据分析。如下图所示，创建一个notebook文件。</p><figure id="93644680-5035-4669-910c-58bc9b77306b" class="image"><a href="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image8.png"><img style="width:640px" src="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image8.png"/></a></figure><p id="d3384d15-70d3-454b-ad0c-aff0ccdc607e" class="">选择要用的内核。当我们的anaconda中有多个环境时，选择内核可以切换不同的环境，但现在还没这个需求。</p><figure id="c14c17c1-19bb-4004-8ac9-6920b6accaff" class="image"><a href="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image9.png"><img style="width:456px" src="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image9.png"/></a></figure><h2 id="e0bc84ff-ad85-49e6-9769-38bd6b621641" class="">编辑</h2><p id="81ac5ea0-9684-477c-935a-2e3fdb0b6e4b" class="">在notebook中有两种块：code和markdown。</p><p id="6ae82bd9-00a8-4e91-9e43-b4dbcf774c7a" class="">Code块用来写代码，输入python语句后按shift+enter键可以运行结果。</p><p id="7b255e69-931d-4ae8-b7d7-677ebd3e181c" class="">Markdown块用来做注释，不会被执行。</p><p id="b792e3e2-87f4-4bd0-a232-6db35adb46e2" class="">下面对不同的模式进行介绍：</p><ol type="1" id="bce530ba-5954-44f1-a512-99406c41c524" class="numbered-list" start="1"><li>编辑和非编辑
+编辑状态下有光标，可以键入字符，白色
+非编辑状态下无光标，不可以编辑，灰色<figure id="63eea1c7-0edb-4eee-afff-9d4085be2dbe" class="image"><a href="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image10.png"><img style="width:289px" src="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image10.png"/></a></figure><figure id="daca500c-52ac-4104-9eb3-814b4559f715" class="image"><a href="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image11.png"><img style="width:369px" src="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image11.png"/></a></figure></li></ol><ol type="1" id="1471508b-5062-4c2e-b2d3-c5f6d2fb7472" class="numbered-list" start="2"><li>Code块和markdown块
+code块的左侧有 [*]
+markdown块的左侧空白
+两者在非编辑状态下可以通过Y键和M键相互切换<figure id="aca2e5f2-6839-4407-b68e-45d9bfb7bc1f" class="image"><a href="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image12.png"><img style="width:356px" src="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image12.png"/></a></figure><figure id="492d90b0-ca64-4ff9-ae18-493d5a869ec1" class="image"><a href="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image13.png"><img style="width:478px" src="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image13.png"/></a></figure></li></ol><h2 id="5add45bc-aeeb-4058-874e-673950fc2ebd" class="">Markdown基本语法</h2><figure id="e9de5e2c-1237-4988-8acf-20e06a509b14" class="image"><a href="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image14.png"><img style="width:700px" src="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image14.png"/></a></figure><p id="63859fe8-fefe-49ad-bcc5-2becf420f0bc" class="">按下shift+enter键显示格式，效果如图</p><figure id="4495966e-3d1d-4a9d-ad76-7f8696f9cdf7" class="image"><a href="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image15.png"><img style="width:700px" src="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image15.png"/></a></figure><p id="cc30b6c5-ff76-46c1-85ee-782bf66d31f3" class="">这让你可以方便的在文件中添加注释和说明，然后在互联网上分享</p><h2 id="a2d307bb-e741-42a7-8676-ac8b334ad752" class="">代码块</h2><p id="75260c41-903f-47f4-9a90-2338b0424037" class="">以numpy和matplotlib库为例，简单的说，numpy是用来处理数据的库，在面对大量的数据时，他比excel更快速、自由；matplotlib是用来绘图的库，用来可视化分析结果。</p><p id="9512524a-d63e-4aff-b49f-b36e5be65292" class="">首先，你需要安装这两个库</p><p id="99e5b2b9-3f2e-4c88-81a3-9bde64af3eec" class="">在anaconda powershell中像安装lab那样</p><p id="2671248c-e521-41dc-aa32-a651c179763a" class="">pip install numpy, matplotlib</p><figure id="ec421bff-48eb-4f1c-a3d1-7a9468996f04" class="image"><a href="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image16.png"><img style="width:700px" src="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image16.png"/></a></figure><p id="dcdc97d3-1da3-46b7-a066-506dfa1b43cb" class="">一些绘图基础知识</p><p id="2e5fdca1-679a-435f-a9e1-4bb0b79eb898" class="">画板figure，画纸Sublpot画质，可多图绘画</p><p id="16493087-626d-4ada-971e-fb7b749aa93b" class="">画纸上最上方是标题title，用来给图形起名字</p><p id="3a338e46-750e-465a-b983-1f028f710f53" class="">坐标轴Axis,横轴叫x坐标轴label，纵轴叫y坐标轴ylabel</p><p id="d00cfb9d-5c76-4aaa-95b3-843537a3eb44" class="">图例Legend 代表图形里的内容</p><p id="c7025904-a7c3-4ff8-ac00-d98579954023" class="">网格Grid，图形中的虚线，True显示网格</p><p id="5520bc09-6920-475d-adb4-c090aef079bd" class="">点 Markers：表示点的形状。</p><figure id="174b780d-d6bf-4613-8207-fa992437c12d" class="image"><a href="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image17.png"><img style="width:416px" src="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image17.png"/></a></figure><h2 id="46ec7f56-4dba-404a-9e4f-8b8289492801" class="">绘图基本操作</h2><figure id="16ed1cea-a9d9-4b43-be3e-10e2f1e916b6" class="image"><a href="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image18.png"><img style="width:700px" src="%E5%BC%80%E5%90%AFjupyter%20lab%20a6855421202e4bc6acd565619b24c65d/image18.png"/></a></figure></div></article></body></html>
