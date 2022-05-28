@@ -6,7 +6,7 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 
 ## Posts
 
-- [开启jupyter lab](./_posts/%E5%BC%80%E5%90%AFjupyter%20lab.md)
+- [开启jupyter lab](/_posts/%E5%BC%80%E5%90%AFjupyter%20lab.md)
 
 
 ## Support or Contact
