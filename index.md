@@ -4,6 +4,10 @@ You can use the [editor on GitHub](https://github.com/ShyDuan/ShyDuan.github.io/
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
+## Posts
+
+[](./_posts/%E5%BC%80%E5%90%AFjupyter%20lab.md)
+
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
