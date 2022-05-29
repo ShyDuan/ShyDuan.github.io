@@ -1,5 +1,3 @@
-## Welcome to GitHub Pages
-
 There're my personal pages and markdown files. Build by Github Pages.
 
 ## Posts
