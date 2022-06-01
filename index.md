@@ -1,4 +1,4 @@
-There're my personal pages and markdown files. Build by Github Pages.
+There're my personal website.
 
 ## Posts
 
